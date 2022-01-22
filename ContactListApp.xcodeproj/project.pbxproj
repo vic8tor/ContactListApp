@@ -15,6 +15,7 @@
 		576C90B5279C797400B0C11D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 576C90B3279C797400B0C11D /* LaunchScreen.storyboard */; };
 		576C90C0279C7A1500B0C11D /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576C90BF279C7A1500B0C11D /* ContactListViewController.swift */; };
 		579C8CE5279C7F4900EA272B /* RandomUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579C8CE4279C7F4900EA272B /* RandomUser.swift */; };
+		579C8CE9279C849100EA272B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579C8CE8279C849100EA272B /* NetworkManager.swift */; };
 		59E89117B4DBD41FEA207F68 /* Pods_ContactListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9022D1EA971034A72E51119 /* Pods_ContactListApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		576C90B6279C797400B0C11D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		576C90BF279C7A1500B0C11D /* ContactListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		579C8CE4279C7F4900EA272B /* RandomUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUser.swift; sourceTree = "<group>"; };
+		579C8CE8279C849100EA272B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F063152FF38B99C1951570EF /* Pods-ContactListApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContactListApp.debug.xcconfig"; path = "Target Support Files/Pods-ContactListApp/Pods-ContactListApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F9022D1EA971034A72E51119 /* Pods_ContactListApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContactListApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -67,6 +69,7 @@
 		576C90A7279C797200B0C11D /* ContactListApp */ = {
 			isa = PBXGroup;
 			children = (
+				579C8CEA279C849800EA272B /* Services */,
 				579C8CE6279C7F4F00EA272B /* Models */,
 				579C8CE7279C7FDC00EA272B /* ViewControllers */,
 				576C90BC279C79A100B0C11D /* Storyboards */,
@@ -114,10 +117,18 @@
 		579C8CE7279C7FDC00EA272B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				576C90AC279C797200B0C11D /* DetailContactController.swift */,
 				576C90BF279C7A1500B0C11D /* ContactListViewController.swift */,
+				576C90AC279C797200B0C11D /* DetailContactController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		579C8CEA279C849800EA272B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				579C8CE8279C849100EA272B /* NetworkManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		C0912740B431E5ADA103A7AF /* Pods */ = {
@@ -252,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				579C8CE9279C849100EA272B /* NetworkManager.swift in Sources */,
 				576C90AD279C797200B0C11D /* DetailContactController.swift in Sources */,
 				576C90C0279C7A1500B0C11D /* ContactListViewController.swift in Sources */,
 				576C90A9279C797200B0C11D /* AppDelegate.swift in Sources */,
