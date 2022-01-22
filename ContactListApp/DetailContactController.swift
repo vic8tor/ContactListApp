@@ -7,11 +7,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class DetailContactController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
 
