@@ -61,10 +61,8 @@ struct User: Codable {
 
 // MARK: - Name
 struct Name: Codable {
-        let title: String?
-        let first: String?
-        let last: String?
-    
+        let title,first,last : String?
+        
     init(value: [String: String]) {
         title = value["title"]
         first = value["first"]
@@ -75,9 +73,7 @@ struct Name: Codable {
 // MARK: - Location
 struct Location: Codable {
     let street: String?
-    let city: String?
-    let state: String?
-    let country: String?
+    let city, state, country: String?
     let postcode: Int?
     let coordinates: Coordinates?
     let timezone: Timezone?
@@ -105,8 +101,7 @@ struct Street: Codable {
 
 // MARK: - Coordinates
 struct Coordinates: Codable {
-    let latitude: String?
-    let longitute: String?
+    let latitude, longitute: String?
     
     init(value: [String: String]) {
         latitude = value["latitude"]
@@ -127,13 +122,9 @@ struct Timezone: Codable {
 
 // MARK: - Login
 struct Login: Codable {
-    let uuid: String?
-    let username: String?
-    let password: String?
-    let salt: String?
-    let md5: String?
-    let sha1: String?
-    let sha256: String?
+    let uuid, username: String?
+    let password, salt: String?
+    let md5, sha1, sha256: String?
     
     init(value: [String: String]) {
         uuid = value["uuid"]
@@ -158,9 +149,8 @@ struct Dob: Codable {
 }
 
 // MARK: - ID
-struct ID {
-    let name: String?
-    let value: String?
+struct ID: Codable {
+    let name, value: String?
     
     init(value: [String: String]) {
         name = value["name"]
@@ -170,9 +160,7 @@ struct ID {
 
 // MARK: - Picture
 struct Picture: Codable {
-    let large: String?
-    let medium: String?
-    let thumbnail: String?
+    let large, medium, thumbnail: String?
     
     init(value: [String: String]) {
         large = value["large"]
