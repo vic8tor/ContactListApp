@@ -8,31 +8,61 @@
 import UIKit
 
 class ContactListViewController: UITableViewController {
-
+   
+    // MARK: - @IBOutlets
+    
+    // MARK: - Public Properties
+    
+    // MARK: - Private Properties
+    private var users: [User] = []
+    // MARK: - Initializers
+    
+    // MARK: - Override Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        0
+        downloadUsers()
+        print(users)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        users.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        var content = cell.defaultContentConfiguration()
+        let name = users[indexPath.row].name
+        
+        content.text = name?.first
+        content.secondaryText = users[indexPath.row].phone
+        
+        cell.contentConfiguration = content
         return cell
-    }
-    */
+     }
 
+
+    // MARK: - @IBActions
+    
+    // MARK: - Public Methods
+    
+    // MARK: - Private Methods
+    private func downloadUsers() {
+        NetworkManager.shared.fetchUsers { result in
+            switch result {
+            case .success(let users):
+                self.users = users
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+}
+    // MARK: - Table view data source
+
+  
     /*
     // MARK: - Navigation
 
@@ -43,4 +73,3 @@ class ContactListViewController: UITableViewController {
     }
     */
 
-}
