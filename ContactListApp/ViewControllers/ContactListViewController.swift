@@ -22,7 +22,7 @@ class ContactListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadUsers()
-        print(users)
+        setupRefreshControl()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,25 +41,37 @@ class ContactListViewController: UITableViewController {
         cell.contentConfiguration = content
         return cell
      }
-
+}
 
     // MARK: - @IBActions
     
     // MARK: - Public Methods
     
     // MARK: - Private Methods
-    private func downloadUsers() {
+    extension ContactListViewController {
+    @objc private func downloadUsers() {
         NetworkManager.shared.fetchUsers { result in
             switch result {
             case .success(let users):
                 self.users = users
                 self.tableView.reloadData()
+                if self.refreshControl != nil {
+                    self.refreshControl?.endRefreshing()
+                }
             case .failure(let error):
                 print(error)
             }
         }
     }
+        private func setupRefreshControl() {
+            refreshControl = UIRefreshControl()
+            refreshControl?.attributedTitle = NSAttributedString(string: "Update to refresh")
+            refreshControl?.addTarget(self, action: #selector(downloadUsers), for: .valueChanged)
+        }
+    
 }
+    
+    
     // MARK: - Table view data source
 
   
